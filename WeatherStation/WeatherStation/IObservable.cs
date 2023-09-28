@@ -10,6 +10,5 @@ namespace WeatherStation
     {
         public void Add(Iobserver bot);
         public void Remove(Iobserver bot);
-        public void Notify();
     }
 }

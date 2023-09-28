@@ -8,6 +8,6 @@ namespace WeatherStation
 {
     public interface IInputHandler
     {
-        public Task<WeatherData?>? HandleInput(string weatherInputString);
+        public Task<WeatherData?> HandleInput(string weatherInputString);
     }
 }

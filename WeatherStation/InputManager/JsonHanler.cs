@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    public class JsonHanler : IInputHandler
+    public class JsonHandler : IInputHandler
     {
-        public async Task<WeatherData?>? HandleInput(string weatherInputString)
+        public async Task<WeatherData?> HandleInput(string weatherInputString)
         {
             var options = new JsonSerializerOptions
             {

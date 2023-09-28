@@ -9,7 +9,7 @@ namespace WeatherStation
 {
     public class XmlHandler : IInputHandler
     {
-        public async Task<WeatherData?>? HandleInput(string weatherInputString)
+        public async Task<WeatherData?> HandleInput(string weatherInputString)
         {
 
             XmlSerializer serializer = new XmlSerializer(typeof(WeatherData));

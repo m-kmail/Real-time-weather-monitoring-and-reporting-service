@@ -9,5 +9,6 @@ namespace WeatherStation
     public interface Iobserver
     {
         public void Ubdate(WeatherData weatherData);
+        public string Name { get; }
     }
 }
