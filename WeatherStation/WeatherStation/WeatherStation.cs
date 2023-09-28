@@ -9,8 +9,8 @@ namespace WeatherStation
     public class WeatherStation : IObservable
     {
         private WeatherData? weatherData;
-        private List<Iobserver> WeatherBots = new();
-        public void Add(Iobserver bot)
+        private List<IObserver> WeatherBots = new();
+        public void Add(IObserver bot)
         {
             bool existed = WeatherBots.Any(weatherBot => weatherBot.Name == bot.Name);
 
@@ -19,14 +19,14 @@ namespace WeatherStation
                 WeatherBots.Add(bot);
             }
         }
-        public void Remove(Iobserver bot)
+        public void Remove(IObserver bot)
         {
             WeatherBots.Remove(bot);
         }
 
         private void Notify()
         {
-            foreach (Iobserver bot in WeatherBots)
+            foreach (IObserver bot in WeatherBots)
                 bot.Ubdate(weatherData!);
         }
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    public interface IBot : Iobserver
+    public interface IBot : IObserver
     {
         public bool Activated { get; }
-        public double? HumidityThreshold { get; }
-        public double? TemperatureThreshold { get; }
-        public string message { get; }
+        public double HumidityThreshold { get; }
+        public double TemperatureThreshold { get; }
+        public string Message { get; }
     }
 }

@@ -8,14 +8,14 @@ namespace WeatherStation
 {
     public class BotConfigeration
     {
-        public bool? enabled { get; set; }
-        public double? humidityThreshold { get; set; }
-        public double? temperatureThreshold { get; set; }
-        public string? message { get; set; }
+        public bool Enabled { get; set; }
+        public double HumidityThreshold { get; set; }
+        public double TemperatureThreshold { get; set; }
+        public string Message { get; set; }
 
         public override string ToString()
         {
-            return $"enabled => {enabled}, humidityThreshold => {humidityThreshold}, temperatureThreshold => {temperatureThreshold}, message => {message}";
+            return $"enabled => {Enabled}, humidityThreshold => {HumidityThreshold}, temperatureThreshold => {TemperatureThreshold}, message => {Message}";
         }
     }
 }

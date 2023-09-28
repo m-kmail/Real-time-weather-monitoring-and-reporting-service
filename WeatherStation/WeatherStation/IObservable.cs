@@ -8,7 +8,7 @@ namespace WeatherStation
 {
     public interface IObservable
     {
-        public void Add(Iobserver bot);
-        public void Remove(Iobserver bot);
+        public void Add(IObserver bot);
+        public void Remove(IObserver bot);
     }
 }

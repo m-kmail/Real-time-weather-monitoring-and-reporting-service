@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    public interface Iobserver
+    public interface IObserver
     {
         public void Ubdate(WeatherData weatherData);
         public string Name { get; }

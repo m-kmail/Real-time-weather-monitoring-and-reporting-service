@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace WeatherStation
@@ -17,7 +18,6 @@ namespace WeatherStation
                 Console.WriteLine(x);
                 Console.WriteLine(bots[x]);
             }
-            
         }
     }
 }
