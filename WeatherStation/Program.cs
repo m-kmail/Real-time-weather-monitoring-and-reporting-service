@@ -1,22 +1,29 @@
-﻿using System;
-using System.Text.Json;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-
-namespace WeatherStation
+﻿namespace WeatherStation
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            
-            string json = File.ReadAllText(@"D:\_Foothil\Real-time-weather-monitoring-and-reporting-service\WeatherStation\WeatherStation\BotsConfigeration.json");
-            var bots = JsonSerializer.Deserialize<Dictionary<string, BotConfigeration>>(json);
+           List<Bot>? bots = await BotManager.GetAllBots();
 
-            foreach(var x in bots!.Keys)
+            WeatherStation station = new WeatherStation();
+
+            bots.ForEach(bot=>station.Add(bot));
+
+            while(true)
             {
-                Console.WriteLine(x);
-                Console.WriteLine(bots[x]);
+                Console.WriteLine(StandardMessages.AskForInput());
+
+                string? inputWeather = Console.ReadLine();
+
+                while(string.IsNullOrWhiteSpace(inputWeather))
+                {
+                    Console.WriteLine(StandardMessages.AskForInput());
+
+                    inputWeather = Console.ReadLine();
+                }
+
+                await station.ReadWeatherData(inputWeather);
             }
         }
     }
