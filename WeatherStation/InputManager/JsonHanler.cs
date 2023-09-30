@@ -16,8 +16,21 @@ namespace WeatherStation
                 PropertyNameCaseInsensitive = true
             };
 
-            WeatherData? CurrentWeatherData = await Task.Run(() => JsonSerializer.Deserialize<WeatherData?>(weatherInputString,options));
-            return CurrentWeatherData;
+            try
+            {
+                WeatherData? CurrentWeatherData = await Task.Run(() => JsonSerializer.Deserialize<WeatherData?>(weatherInputString, options));
+                return CurrentWeatherData;
+            }
+            catch (Exception)
+            {
+                return await InputException();
+            }
+        }
+
+        public async Task<WeatherData?> InputException()
+        {
+            Console.WriteLine(StandardMessages.InvalidInput());
+            return await Task.FromResult<WeatherData?>(null);
         }
     }
 }

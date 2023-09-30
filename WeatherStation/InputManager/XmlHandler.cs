@@ -14,9 +14,22 @@ namespace WeatherStation
 
             XmlSerializer serializer = new XmlSerializer(typeof(WeatherData));
             StringReader rdr = new StringReader(weatherInputString);
-            WeatherData? CurrentWeatherData = await Task.Run(() => (WeatherData?)serializer.Deserialize(rdr));
 
-            return CurrentWeatherData;
+            try
+            {
+                WeatherData? CurrentWeatherData = await Task.Run(() => (WeatherData?)serializer.Deserialize(rdr));
+                return CurrentWeatherData;
+            }
+            catch (Exception)
+            {
+                return await InputException();
+            }
+        }
+
+        public async Task<WeatherData?> InputException()
+        {
+            Console.WriteLine(StandardMessages.InvalidInput());
+            return await Task.FromResult<WeatherData?>(null);
         }
     }
 }
