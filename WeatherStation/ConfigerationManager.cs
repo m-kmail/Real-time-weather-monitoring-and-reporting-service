@@ -4,7 +4,7 @@ namespace WeatherStation
 {
     public abstract class ConfigerationManager
     {
-        private static string FilePath = @"D:\_Foothil\Real-time-weather-monitoring-and-reporting-service\WeatherStation\WeatherStation\BotsConfigeration.json";
+        private static string FilePath = "BotsConfigeration.json";
 
         public static async Task<Dictionary<string, BotConfigeration>?> GetConfigerationData()
         {
